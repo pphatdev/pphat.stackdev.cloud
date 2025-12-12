@@ -53,7 +53,7 @@ export default function HomePage() {
 
     const formatTime = (date: Date) => {
         return date.toLocaleTimeString('en-US', {
-            hour: 'numeric',
+            hour: '2-digit',
             minute: '2-digit',
             hour12: true
         });
@@ -79,33 +79,34 @@ export default function HomePage() {
 
 
     return (
-        <main className="min-h-screen font-sans relative bg-amber-50 text-center">
+        <main className="min-h-screen font-sans relative bg-linear-to-b from-amber-50 to-amber-200 text-center">
             <div className="flex flex-col gap-3 items-center justify-center min-h-screen">
 
-                <div className="flex justify-center max-sm:mt-5 flex-col">
-                    <p className="leading-4 text-sm mb-2">Welcome back,</p>
+                <div className="flex justify-center max-sm:mt-5 flex-col mb-5">
+                    <p className="leading-4 text-sm mb-2">Welcome back</p>
                     <time dateTime="" className="max-sm:text-3xl text-6xl font-bold"> {formatTime(currentTime)}</time>
-                    <p className="max-sm:text-lg text-foreground/70 text-2xl font-medium mt-1">{formatDate(currentTime)}</p>
+                    <p className="max-sm:text-lg text-foreground/70 text-2xl mt-1">{formatDate(currentTime)}</p>
                 </div>
 
-
-                <div className="flex w-full p-5 flex-col max-sm:mt-2 mt-5 justify-center gap-5">
+                <div className="flex w-full px-5 flex-col max-sm:mt-2 mt-6 justify-center gap-3">
                     <div className="max-sm:size-20 relative size-32 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center ring-2 ring-amber-200 ring-offset-4">
                         <WindowsIcon className="max-sm:size-10 size-12" />
-
-                        <Image src="/cambodia-flag-icon-128.png" alt="Avatar" width={120} height={120} className="absolute ring-2 bottom-1 -right-2 ring-amber-200 rounded w-9 hover:scale-110 transition-all duration-300 h-auto object-cover" />
-
+                        <Image src="/profile.png" alt="Avatar" width={400} height={400} className="w-full h-full p-2 rounded-2xl" />
+                        <Image src="/cambodia-flag-icon-128.png" alt="Avatar" width={120} height={120} className="absolute ring-2 bottom-1 -right-2 ring-amber-200 rounded w-9 hover:scale-110 transition-all duration-300 h-6 object-cover" />
                     </div>
-                    <div className="max-sm:flex-col max-sm:mt-5 mt-7 items-center flex-col flex mx-auto justify-center gap-0">
+                    <div className="max-sm:flex-col max-sm:mt-5 mt-9 items-center flex-col flex mx-auto justify-center gap-0">
                         <h1 className="font-bold font-sans text-xl">Sophat LEAT</h1>
                     </div>
 
-                    <div className="flex w-full max-w-xs mx-auto justify-center max-sm:gap-1 gap-2">
-                        <input type="password" className="text-base leading-5 w-full font-normal px-3 py-1.5 rounded-xl rounded-r-sm border" placeholder="PIN" value={pin} onChange={(e) => setPin(e.target.value)} />
-                        <button type="submit" disabled={loggingIn} onClick={loginHandler} className="text-base shrink-0 bg-amber-100 disabled:opacity-50 cursor-pointer text-amber-900 leading-5 font-medium px-3 py-1.5 rounded-xl rounded-l-sm border">
+                    <div className="flex w-full max-w-60 mx-auto justify-center max-sm:gap-1 gap-2 shadow-2xl">
+                        <input type="password" className="text-base leading-5 font-black tracking-[3px] bg-background w-full px-3 py-1.5 rounded-lg rounded-r-sm outline-0 ring-2 ring-background/50 focus-within:ring-amber-400" placeholder="PIN" value={pin} onChange={(e) => setPin(e.target.value)} />
+                        <button type="submit" disabled={loggingIn} onClick={loginHandler} className="text-base transition-all duration-300 shrink-0 bg-amber-600 disabled:opacity-50 cursor-pointer text-white leading-5 font-medium px-3 py-1.5 rounded-lg rounded-l-sm ring-2 ring-amber-300 focus-within:ring-amber-400">
                             {
                                 loggingIn
-                                ? <span className="flex gap-1 items-center"><LoaderIcon className="size-4 animate-spin" /> {'Sign In'} </span> : 'Sign In'
+                                ? <span className="flex gap-1 items-center transition-all duration-300">
+                                    <LoaderIcon className="size-4 animate-spin" />
+                                    {'Sign In'}
+                                </span> : 'Sign In'
                             }
                         </button>
                     </div>
@@ -113,10 +114,10 @@ export default function HomePage() {
 
 
                 <footer className="pb-5 mt-10 w-full px-4 mb-5">
-                    <ul className="flex w-full max-w-3xl overflow-x-auto mx-auto justify-center py-1.5 gap-5">
+                    <ul className="flex w-full max-w-3xl overflow-x-auto mx-auto justify-center py-1.5 gap-8">
                         {menuItems.map((item) => (
                             <li key={item.name} className="flex items-center gap-0.5 justify-center">
-                                <a href={item.href} className="relative flex flex-col items-center justify-center size-9 rounded-lg hover:bg-white hover:shadow-lg duration-400 shadow-black/10 transition-colors">
+                                <a href={item.href} className="relative flex flex-col items-center justify-center size-9 rounded-lg hover:bg-white hover:shadow-lg duration-200 shadow-black/10 transition-colors">
                                     <item.icon className={item.className} />
                                 </a>
                                 <span className="max-sm:text-xs whitespace-nowrap mt-0.5">{item.name}</span>
