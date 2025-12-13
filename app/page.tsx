@@ -9,30 +9,54 @@ import { useRouter } from 'next/navigation';
 import { LoaderIcon } from "lucide-react";
 
 const menuItems = [
+    // {
+    //     name: 'Windows',
+    //     href: '#',
+    //     icon: WindowsIcon,
+    //     className: 'max-sm:size-4 size-7',
+    // },
     {
-        name: 'Windows',
-        href: '#',
-        icon: WindowsIcon,
-        className: 'max-sm:size-4 size-7',
-    },
-    {
-        name: 'Search',
-        href: '#',
+        name: 'Sophat LEAT',
+        href: 'https://google.com/search?q=sophat+leat',
         icon: SearchIcon,
-        className: 'max-sm:size-4 text-gray-500 size-6',
+        className: 'text-gray-500 size-4',
     },
     {
-        name: 'GitHub',
-        href: '#',
-        icon: GithubIcon,
-        className: 'max-sm:size-4 text-gray-600 size-7',
+        name: 'LEAT Sophat',
+        href: 'https://google.com/search?q=leat+sophat',
+        icon: SearchIcon,
+        className: 'text-gray-500 size-4',
     },
     {
-        name: 'VS Code',
-        href: '#',
-        icon: VisualStudioCodeIcon,
-        className: 'max-sm:size-4 text-blue-500 size-7 mt-0.5',
+        name: 'pphatdev',
+        href: 'https://google.com/search?q=pphatdev',
+        icon: SearchIcon,
+        className: 'text-gray-500 size-4',
     },
+    {
+        name: 'sophatleat',
+        href: 'https://google.com/search?q=sophatleat',
+        icon: SearchIcon,
+        className: 'text-gray-500 size-4',
+    },
+    {
+        name: 'leatsophat',
+        href: 'https://google.com/search?q=leatsophat',
+        icon: SearchIcon,
+        className: 'text-gray-500 size-4',
+    },
+    // {
+    //     name: 'GitHub',
+    //     href: '#',
+    //     icon: GithubIcon,
+    //     className: 'max-sm:size-4 text-gray-600 size-7',
+    // },
+    // {
+    //     name: 'VS Code',
+    //     href: '#',
+    //     icon: VisualStudioCodeIcon,
+    //     className: 'max-sm:size-4 text-blue-500 size-7 mt-0.5',
+    // },
 ];
 
 
@@ -42,6 +66,14 @@ export default function HomePage() {
     const [ loggingIn, setLoggingIn ] = useState(false);
     const [pin, setPin] = useState('1234');
     const router = useRouter();
+
+    const greetings = () => {
+        const hour = currentTime.getHours();
+        if (hour < 12) return 'Good Morning';
+        if (hour < 18) return 'Good Afternoon';
+        return 'Good Evening';
+    }
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -79,11 +111,11 @@ export default function HomePage() {
 
 
     return (
-        <main className="min-h-screen font-sans relative bg-linear-to-b from-amber-50 to-amber-200 text-center">
+        <main className="min-h-screen font-sans relative bg-linear-to-b from-amber-50 to-amber-100 text-center">
             <div className="flex flex-col gap-3 items-center justify-center min-h-screen">
 
                 <div className="flex justify-center max-sm:mt-5 flex-col mb-5">
-                    <p className="leading-4 text-sm mb-2">Welcome back</p>
+                    <p className="leading-4 text-sm mb-2">{greetings()}, Welcome back</p>
                     <time dateTime="" className="max-sm:text-3xl text-6xl font-bold"> {formatTime(currentTime)}</time>
                     <p className="max-sm:text-lg text-foreground/70 text-2xl mt-1">{formatDate(currentTime)}</p>
                 </div>
@@ -99,7 +131,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="flex w-full max-w-60 mx-auto justify-center max-sm:gap-1 gap-2 shadow-2xl">
-                        <input type="password" className="text-base leading-5 font-black tracking-[3px] bg-background w-full px-3 py-1.5 rounded-lg rounded-r-sm outline-0 ring-2 ring-background/50 focus-within:ring-amber-400" placeholder="PIN" value={pin} onChange={(e) => setPin(e.target.value)} />
+                        <input type="password" className="text-base leading-5 font-black tracking-[3px] bg-background w-full px-3 py-1.5 rounded-lg rounded-r-sm outline-0 ring-2 ring-amber-200/70 focus-within:ring-amber-400" placeholder="PIN" value={pin} onChange={(e) => setPin(e.target.value)} />
                         <button type="submit" disabled={loggingIn} onClick={loginHandler} className="text-base transition-all duration-300 shrink-0 bg-amber-600 disabled:opacity-50 cursor-pointer text-white leading-5 font-medium px-3 py-1.5 rounded-lg rounded-l-sm ring-2 ring-amber-300 focus-within:ring-amber-400">
                             {
                                 loggingIn
@@ -112,9 +144,9 @@ export default function HomePage() {
                     </div>
                 </div>
 
-
-                <footer className="pb-5 mt-10 w-full px-4 mb-5">
-                    <ul className="flex w-full max-w-3xl overflow-x-auto mx-auto justify-center py-1.5 gap-8">
+                <footer className="pb-5 mt-10 w-full px-4 mb-5 flex gap-2 flex-col items-center justify-center">
+                    <div className="h-0.5 w-full max-w-xs mx-auto mt-5 bg-linear-to-r from-transparent via-amber-300 to-transparent"></div>
+                    <ul className="flex flex-wrap w-full max-w-3xl overflow-x-auto pb-5 mx-auto justify-center py-1.5 gap-x-8">
                         {menuItems.map((item) => (
                             <li key={item.name} className="flex items-center gap-0.5 justify-center">
                                 <a href={item.href} className="relative flex flex-col items-center justify-center size-9 rounded-lg hover:bg-white hover:shadow-lg duration-200 shadow-black/10 transition-colors">
