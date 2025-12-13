@@ -53,7 +53,6 @@ export default function HomePage() {
         return 'Good Evening';
     }
 
-
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date());
@@ -91,7 +90,7 @@ export default function HomePage() {
 
     return (
         <main className="min-h-screen font-sans relative bg-linear-to-b from-amber-50 to-amber-100 text-center">
-            <Image src="/angkor-wat-cambodia.jpg" alt="Background" fill className="absolute pointer-events-none opacity-7 inset-0 object-cover" />
+            <Image src="/angkor-wat-cambodia.jpg" alt="Background" fill className="absolute pointer-events-none opacity-5 inset-0 object-cover" />
             <div className="flex flex-col gap-3 items-center justify-center min-h-screen">
 
                 <div className="flex justify-center max-sm:mt-10 flex-col mb-5">

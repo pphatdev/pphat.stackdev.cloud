@@ -3,6 +3,7 @@ import { SearchIcon } from "@/components/icons/search";
 import { VisualStudioCodeIcon } from "@/components/icons/vscode";
 import { WindowsIcon } from "@/components/icons/windows";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const menuItems = [
     {
@@ -34,8 +35,9 @@ const menuItems = [
 
 export default function HomePage() {
     return (
-        <main className="min-h-screen relative bg-amber-50">
-            <footer className="fixed bottom-0 inset-x-0 border-t backdrop-blur-sm border-black/5 bg-white/50">
+        <main className="min-h-screen relative bg-linear-to-b from-amber-50 to-amber-100 text-center">
+            <Image src="/angkor-wat-cambodia.jpg" alt="Background" fill className="absolute pointer-events-none  inset-0 object-cover" />
+            <footer className="fixed bottom-0 inset-x-0 border-t backdrop-blur-sm border-black/5 bg-white/90">
                 <ul className="flex w-full max-w-3xl mx-auto justify-center py-1.5 gap-1">
                     {menuItems.map((item) => (
                         <li key={item.name}>
