@@ -90,7 +90,7 @@ export default function HomePage() {
 
                 <div className="flex w-full px-5 flex-col max-sm:mt-2 mt-6 justify-center gap-3">
                     <div className="max-sm:size-20 relative size-32 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center ring-2 ring-amber-200 ring-offset-4">
-                        <WindowsIcon className="max-sm:size-10 size-12" />
+                        {/* <WindowsIcon className="max-sm:size-10 size-12" /> */}
                         <Image src="/profile.png" alt="Avatar" width={400} height={400} className="w-full h-full p-2 rounded-2xl" />
                         <Image src="/cambodia-flag-icon-128.png" alt="Avatar" width={120} height={120} className="absolute ring-2 bottom-1 -right-2 ring-amber-200 rounded w-9 hover:scale-110 transition-all duration-300 h-6 object-cover" />
                     </div>
