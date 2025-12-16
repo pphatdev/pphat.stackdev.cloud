@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LoaderIcon } from "lucide-react";
+import { appConfig } from "@/configs/app";
 
 const menuItems = [
     {
@@ -105,7 +106,7 @@ export default function HomePage() {
                         <Image src="/cambodia-flag-icon-128.png" alt="Avatar" width={120} height={120} className="absolute ring-2 bottom-1 -right-2 ring-amber-200 rounded w-9 hover:scale-110 transition-all duration-300 h-6 object-cover" />
                     </div>
                     <div className="max-sm:flex-col max-sm:mt-5 mt-9 items-center flex-col flex mx-auto justify-center gap-0">
-                        <h1 className="font-bold font-sans text-xl">Sophat LEAT</h1>
+                        <h1 className="font-bold font-sans text-xl">{appConfig.name}</h1>
                     </div>
 
                     <div className="flex w-full max-w-60 mx-auto justify-center max-sm:gap-2 gap-2 shadow-2xl">
